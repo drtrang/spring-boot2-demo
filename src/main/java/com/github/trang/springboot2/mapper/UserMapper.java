@@ -17,7 +17,10 @@ public class UserMapper {
     private static final List<User> USERS = Arrays.asList(new User(1L, "trang"), new User(2L, "liang"));
 
     public Mono<User> getById(long id) {
-        return Mono.justOrEmpty(USERS.stream().filter(user -> user.getId() == id).findFirst().orElse(null));
+        return Mono
+                .justOrEmpty(USERS.stream().filter(user -> user.getId() == id)
+                .findFirst()
+                .orElse(null));
     }
 
     public Flux<User> list() {
